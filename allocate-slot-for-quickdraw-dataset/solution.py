@@ -13,25 +13,27 @@ imgs = sample_images_of_category(n, category)
 ## Step 2: Choose the grid properties
 ######## Your changes should go here ###############
 cols = 8
-if n < 8 or n % 8 == 0:
+if n < 8 or n == 8:
     cols = n
-elif n > 8:
-    if n % 7 == 0:
-        cols = 7
-    elif n % 5 == 0:
-        cols = 5
-    elif n % 3 == 0:
-        cols = 3
-    elif n % 2 == 0:
-        cols = 2
-    else:
+else:
+    list = []
+    for i in range(1, 8):
+        list.append(n % i)
+    list.append(n % (int(sqrt(n)) + 1))
+    list.reverse()
+    index = list.index(min(list))
+    if index == 0:
         cols = int(sqrt(n)) + 1
-        if cols > 8:
-            cols = 8
+    else:
+        cols = 8 - index
 rows = int(n / cols) + int(bool(n % cols))
 # The height and width of the whole grid, measured in inches.
 height = rows * 2
 width = cols * 2
+
+print(f'{n} images')
+print(f'{rows} rows x {cols} cols')
+print(f'{width} x {height} inches')
 
 ## Step 3: Create the grid
 grid = plt.subplots(rows, cols, figsize=(width, height))

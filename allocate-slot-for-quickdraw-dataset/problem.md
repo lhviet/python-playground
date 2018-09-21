@@ -1,3 +1,5 @@
+Ref. https://www.kaggle.com/learn/python
+
 <hr/>
 ## 6. <span title="Spicy" style="color: coral">🌶️🌶️</span>
 
